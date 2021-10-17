@@ -7,34 +7,44 @@ using std::endl;
 class GrandParent{
 public:
     int GP_Pub;
-    void print() {cout << "Hello!\n";}
+    void GP_print_Pub() {cout << "GP_Pub!\n";}
 protected:
     int GP_Prtd;
+    void GP_print_Prtd() {cout << "GP_Prtd!\n";}
 private:
     int GP_Prv;
-    void printPV() {cout << "private!\n"};
+    void GP_print_Prv() {cout << "GP_PRV!\n";};
 };
 
 class Parent: private GrandParent{
 public:
     int P_Pub;
-    void println(){
+    void printP(){
         cout << "World!\n";
-        GrandParent::print(); //프라이빗으로 받아도 스페시파이어 붙이면 호출 되네? 왜?
-        GrandParent::printPV(); //원래 프라이빗이면 안되긴 하네...
+        GrandParent::GP_print_Pub(); //OK! Private으로 받아도 class Specifier 붙이면 호출이 되네요.. 이유가 궁금합니다.
+        GrandParent::GP_print_Prtd(); //OK!
+        //GrandParent::GP_print_Prv(); Error! Declaration이 private이면 안되긴 하네요.
     }
-    GrandParent::print(); //이건 왜 또 안됨?
-//inaccessible한 멤버도 overriding에 포함인가?
+
+    void GP_print_pub(){ //GP_print_pub은 current scope에서 inaccessible인데, 이 function declaration도 overriding이라 할 수 있을까요?
+        cout << "GP_Pub overriden?!\n";
+    }
+
 protected:
     int P_Prtd;
 private:
     int P_Prv;
-    int GP_Prv;
+    int GP_Prv; //ok. GP_Prv is not accesible on this scope
 };
 
 class Child: public Parent{
 public:
     int C_Pub;
+    void printC(){
+        cout << "HiHi\n";
+        //GrandParent::GP_print_Pub(); Error! Child inherits Parent with public specifier, so guess this must work, but why not?
+        //Parent::GP_print_Pub(); Error! Why is this
+    }
 protected:
     int C_Prtd;
 private:
@@ -46,9 +56,7 @@ int main(){
     Parent *P = new Parent;
     Child *C = new Child;
 
-    //cout << C->GP_Pub << endl;
+    P->GrandParent::GP_print_Pub(); //why this is impossible when line 24 is okay?
 
-    P->println();
-    C->println();
     return 0;
 }
