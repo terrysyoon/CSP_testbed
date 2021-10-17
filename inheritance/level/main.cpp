@@ -44,6 +44,7 @@ public:
         cout << "HiHi\n";
         //GrandParent::GP_print_Pub(); Error! Child inherits Parent with public specifier, so guess this must work, but why not?
         //Parent::GP_print_Pub(); Error! Why is this an error? line 24 works..
+        //현재 상황(Access Control 등..)에서 Child에서 GP_print_pub();을 call 할 수 있는 방법은 없는 것인가요?
     }
 protected:
     int C_Prtd;
