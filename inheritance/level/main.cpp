@@ -43,7 +43,7 @@ public:
     void printC(){
         cout << "HiHi\n";
         //GrandParent::GP_print_Pub(); Error! Child inherits Parent with public specifier, so guess this must work, but why not?
-        //Parent::GP_print_Pub(); Error! Why is this
+        //Parent::GP_print_Pub(); Error! Why is this an error? line 24 works..
     }
 protected:
     int C_Prtd;
