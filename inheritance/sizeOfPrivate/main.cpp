@@ -19,7 +19,7 @@ private:
 };
 
 int main(){
-    cout << sizeof(Parent) << endl;
-    cout << sizeof(Child) << endl;
+    cout << sizeof(Parent) << endl; //12
+    cout << sizeof(Child) << endl; //16
     return 0;
 }
