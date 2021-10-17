@@ -59,7 +59,7 @@ int main(){
     Parent *P = new Parent;
     Child *C = new Child;
 
-    //P->GrandParent::GP_print_Pub(); //why this is impossible when line 24 is okay?
+    //P->GrandParent::GP_print_Pub(); //why this is impossible when line 24, 25 are okay?
 
     return 0;
 }
