@@ -12,8 +12,10 @@ using std::endl;
 class Parent{
 public:
     void f(){
+        Parent::v_prvF();
         v_prvF();
         prvF();
+        cout << endl;
     }
 protected:
 private:
@@ -42,7 +44,11 @@ int main(){
 
     p.f();
     c.f();
+    
+    c.::Parent::f();
+    c.::Child::f();
     return 0;
 }
 
 //v_prvF, prvF 2가지 모두 오버라이딩된 함수인가요?
+//스트링 리터럴 관련..
