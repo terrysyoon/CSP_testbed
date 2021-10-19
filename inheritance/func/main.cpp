@@ -17,6 +17,10 @@ public:
         prvF();
         cout << endl;
     }
+
+    void foo(){
+        cout << "hello\n";
+    }
 protected:
 private:
     virtual void v_prvF(){
@@ -29,6 +33,10 @@ private:
 };
 
 class Child: public Parent{
+public:
+    void foo(){
+        cout << "Hi there\n";
+    }
 private:
     virtual void v_prvF(){
         cout << "Child Private\n";
@@ -44,9 +52,9 @@ int main(){
 
     p.f();
     c.f();
-    
-    c.::Parent::f();
-    c.::Child::f();
+
+    c.::Parent::foo();
+    c.::Child::foo();
     return 0;
 }
 
