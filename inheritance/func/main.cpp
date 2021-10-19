@@ -1,3 +1,8 @@
+/*
+Oct 19th 2021
+Yoon Sungbae / yoonsb@hanyang.ac.kr
+*/
+
 #include <iostream>
 
 using std::cin;
@@ -40,4 +45,4 @@ int main(){
     return 0;
 }
 
-//cpp에서 정의하면 인라인 아닌가?
+//v_prvF, prvF 2가지 모두 오버라이딩된 함수인가요?
